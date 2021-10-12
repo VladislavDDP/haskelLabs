@@ -28,39 +28,44 @@ f = [(1, ('a',[True, False]))]
 -- Функцiя приймає три числа i перевiряє, чи значення першого з них
 -- знаходиться мiж значеннями двох iнших.
 
-checkIfBetween :: (Integer, Integer, Integer) -> Bool
-checkIfBetween (x, y, z) =  y <= x && x <=  z
+checkIfBetween :: [Integer] -> Bool
+checkIfBetween x =  x !! 1 <= head x && head x <=  last x
 
 checkIfBetweenOrder :: Integer -> Integer -> Integer -> Bool
 checkIfBetweenOrder x y z =  y <= x && x <=  z
 
 
 -- Функцiя за довжиною трьох вiдрiзкiв визначає, чи можна на них побудувати прямокутний трикутник.
+checkSidesForRightAngledTiangleList :: [Double] -> Bool
+checkSidesForRightAngledTiangleList list = (length list == 3) 
+                                                && (head list^2 + list !! 1 ^2 == last list^2) 
+                                                || (head list^2 + last list^2 == list !! 1^2) 
+                                                || (list !! 1^2 + last list^2 == head list^2)
 
-checkIfCanBuildTriangle :: (Integer, Integer, Integer) -> Bool
-checkIfCanBuildTriangle (x, y, z) = x + y > z && z + y > x && x + z > y
 
 checkIfCanBuildTriangleOrder :: Integer -> Integer -> Integer -> Bool
-checkIfCanBuildTriangleOrder x y z = x + y > z && z + y > x && x + z > y
+checkIfCanBuildTriangleOrder x y z = x^2 + y^2 == z^2 || z^2 + y^2 == x^2 || x^2 + z^2 == y^2
 
 
 -- Функцiя приймає двi логiчнi величини (Bool) i повертає їх у формi
 -- впорядкованої за спаданням двiйки (кортежа).
 
-sortLogic :: (Bool, Bool) -> (Bool, Bool)
-sortLogic (x, y) = if x > y then (x, y) else (y, x)
+sortLogic :: [Bool] -> (Bool, Bool)
+sortLogic x = if head x > last x then (head x, last x) else (last x, head x)
 
 sortLogicOrder :: Bool -> Bool -> (Bool, Bool)
 sortLogicOrder x y = if x > y then (x, y) else (y, x)
 
 
 -- Функцiя приймає два рядки (String) i перевiряє, чи вони лексикографiчно впорядкованi.
+checkIfLeksicalSortedList :: [String] -> Bool
+checkIfLeksicalSortedList x = length x == 2 && head x < last x   
+
 checkIfLeksicalSorted :: (String, String) -> Ordering
 checkIfLeksicalSorted (x, y) = compare x  y
 
-checkIfLeksicalSortedOrder :: String -> String -> Ordering
-checkIfLeksicalSortedOrder = compare
-
+checkIfLeksicalOrder :: (String, String) -> Ordering
+checkIfLeksicalOrder (x, y) = compare x  y
 
 -- Висновок
 -- На даній лабораторній роботі ми ознайомитись з основними типами даних мови Haskell.
