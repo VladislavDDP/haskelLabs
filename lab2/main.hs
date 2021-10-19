@@ -31,7 +31,7 @@ end (_:xs) = end xs
 mixListPure :: [a] -> [a]
 mixListPure [] = []
 mixListPure [x] = [x]
-mixListPure (x:xs) = [x] ++ [end xs] ++ mixListPure (init xs)
+mixListPure (x:xs) = [x] ++ [end xs] ++ mixListPure (removeLast xs)
 
 
 -- б) з застосуванням вбудованих функцiй.
