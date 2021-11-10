@@ -25,6 +25,10 @@ uniqueBuildIn (x:xs)
             | otherwise = x : uniqueBuildIn xs
 
 
+removeDuplicates2 :: Eq a => [a] -> [a]
+removeDuplicates2 = foldl (\seen x -> if x `elem` seen
+                                      then seen
+                                      else seen ++ [x]) []
 -- Testing 
 -- case 1: [1,1,1,1,1,1,1,2,2,2,2,55,888,888,888]
 -- answer: [1,2,55,888]
