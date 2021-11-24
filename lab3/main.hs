@@ -30,7 +30,7 @@ removeDuplicates2 = foldl (\seen x -> if x `elem` seen
                                       then seen
                                       else seen ++ [x]) []
 -- Testing 
--- case 1: [1,1,1,1,1,1,1,2,2,2,2,55,888,888,888]
+-- case 1:  
 -- answer: [1,2,55,888]
 
 -- case 2: [99, 99, 88, 88, 77]
