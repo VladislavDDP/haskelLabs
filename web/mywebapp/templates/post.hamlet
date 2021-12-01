@@ -1,0 +1,6 @@
+<div>
+    <h1>Enter a, b and get GCD: 
+    <div id="new-post">
+        <form method=POST action=@{PostR} enctype=#{enctype}>
+            ^{widget}
+            <button>get GCD

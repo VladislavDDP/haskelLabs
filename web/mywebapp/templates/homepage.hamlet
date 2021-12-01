@@ -1,0 +1,56 @@
+<div .masthead>
+    <div .container>
+        <div .row>
+            <h1 .header>
+                Лабораторна робота №5
+
+            <br>
+
+            <h2 .header>
+                Додаткове завдання
+            <h2>
+                Виконав Кучерук Владислав
+
+<div .container>
+    <!-- My Project
+       ================================================== -->
+    <div .bs-docs-section>
+       <div .row>
+           <div .col-lg-12>
+               <div .page-header>
+                    <p>Завдання: Вивести найбільший спільний дільник для чисел a, b.
+                    <br>
+                    <label>Введіть послідовність чисел:
+                    <br>
+                    <input id="input_sequence_of_numbers" type="text" value="">
+                    <button id="get-result-btn">Вивести результат
+
+                    <br>
+                    <br>
+
+                    <p .result-container>
+                    
+                    <script>
+                        const button = document.querySelector("#get-result-btn");
+                        const resultContainer = document.querySelector('.result-container');
+
+                        const gcd = (a, b) => {
+                            if (!b) return a;
+                            return gcd(b, a % b);
+                        };
+
+                        const callbackForBtn = () => {
+                            const [a, b] = document
+                                .querySelector('#input_sequence_of_numbers')
+                                .value.split(' ');
+                            resultContainer.innerHTML = `Result: ${gcd(a, b)}`;
+                        };
+                        
+                        button.addEventListener("click", callbackForBtn);
+
+
+    <hr>
+ 
+    <div .bs-docs-section>
+        <a href="/posts">Get result
+    <hr>
